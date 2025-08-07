@@ -6,8 +6,10 @@
 
 ## 🚀 Teknologi yang Digunakan
 
-- **[Next.js](https://nextjs.org/)** – Framework berbasis React untuk pengembangan web dengan kemampuan server-side rendering dan static site generation.
-- **[React](https://reactjs.org/)** – Library JavaScript untuk membangun UI yang interaktif dan berbasis komponen.
+<p align="left">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+</p>
 
 ---
 
