@@ -6,11 +6,19 @@
 
 ## 🚀 Teknologi yang Digunakan
 
-<p align="left">
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-</p>
+<div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap">
 
+  <div align="center">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original-wordmark.svg" width="80" height="80" alt="Next.js" />
+    <div><strong>Next.js</strong></div>
+  </div>
+
+  <div align="center">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="80" height="80" alt="React" />
+    <div><strong>React</strong></div>
+  </div>
+
+</div>
 ---
 
 ## 👨‍💻 Tim Pengembang
