@@ -12,6 +12,19 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-inter: "Inter", sans-serif;
+
+  --color-dev-grey: #696969;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --text-head-1-64: 64px;
+  --text-head-2-48: 48px;
+  --text-head-3-32: 32px;
+  --text-body-xl-24: 24px;
+  --text-body-lg-20: 20px;
+  --text-body-md-16: 16px;
+  --text-body-sm-14: 14px;
+  --text-body-xs-12: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
