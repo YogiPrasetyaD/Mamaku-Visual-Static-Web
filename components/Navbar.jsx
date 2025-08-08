@@ -29,7 +29,7 @@ const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   return (
     <nav className='layout-container fixed top-0 left-0 z-10 right-0 '>
-      <header className='flex items-center justify-between px-10 py-3 border-b border-b-[#e7edf3] border-solid bg-white'>
+      <header className='flex items-center justify-between px-10 py-3 bg-white'>
         <div className='flex items-center gap-6 text-[#0e141b] '>
           <Image
             src="/logohitam.png"
