@@ -1,18 +1,42 @@
 import React from 'react'
 import Image from 'next/image'
 
-const ProjectCard = ({ imgUrl, title, description }) => {
+const ProjectCard = ({ logo, title, category, location, imgUrl }) => {
   return (
-    <div className='border'>
-        <Image src= {imgUrl}
-            alt="Logo"
-            width={427}
-            height={24}
-            className='flex items-center justify-center'/>
-        <div className='flex flex-col'>
-            <h5 className='font-semibold text-body-sm-14 md:text-body-xl-24 mt-2 text-dev-black truncate'>{title}</h5>
-            <p className='font-normal text-body-xs-12 text-dev-black'>{description}</p>
+    <div className="flex flex-col items-start rounded-lg mb-1">
+      {/* Gambar di atas */}
+      <Image
+        src={imgUrl}
+        alt={`${title} Image`}
+        width={400}
+        height={200}
+      />
+
+      {/* Logo + Info */}
+      <div className="flex items-center gap-4 mt-2 w-full">
+        {/* Logo */}
+        <Image
+          src={logo}
+          alt={`${title} Logo`}
+          width={50}
+          height={50}
+          className="w-12 h-12 object-contain"
+        />
+
+        {/* Info: Title, Category, Location */}
+        <div className="flex flex-col w-full">
+          {/* Category & Location sejajar */}
+          <div className="flex flex-row justify-between text-dev-grey text-body-xs-12">
+            <span>{category}</span>
+            <span>{location}</span>
+          </div>
+
+          {/* Title */}
+          <h5 className="font-medium text-body-sm-14 text-dev-black truncate mt-1">
+            {title}
+          </h5>
         </div>
+      </div>
     </div>
   )
 }

@@ -1,25 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
-import ProjectCard from './ProjectCard'
+import ProjectCardHero from './ProjectCardHero'
 
 const projects = [
     {
         id: 1,
-        imgUrl: "/project.png",
+        imgUrl: "/project1.jpg",
         title: "MUSEUM",
-        description: "This is a description of project one."
     },
     {
         id: 2,
-        imgUrl: "/project.png",
+        imgUrl: "/project2.png",
         title: "CULTURE",
-        description: "This is a description of project two."
     },
     {
         id: 3,
-        imgUrl: "/project.png",
+        imgUrl: "/project3.jpg",
         title: "INFRASTRUCTURE",
-        description: "This is a description of project three."
     }
 ]
 
@@ -47,10 +44,10 @@ const HeroSection = () => {
                 {
                     projects.map((project) => (
                         <li key={project.id}>
-                            <ProjectCard 
+                            <ProjectCardHero
                                 imgUrl = {project.imgUrl}
                                 title={project.title}
-                                description = {project.description}
+                                location={project.location}
                             /> 
                         </li>
                     ))
