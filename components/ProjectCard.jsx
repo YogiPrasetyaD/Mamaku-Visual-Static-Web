@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 
-const ProjectCard = ({ logo, title, category, location, imgUrl }) => {
+const ProjectCard = ({ logo, title, category, location, imgUrl, onClick, images, descriptions, map }) => {
   return (
-    <div className="flex flex-col items-start rounded-lg mb-1">
+    <div onClick={onClick} className="flex flex-col items-start rounded-lg mb-1">
       {/* Gambar di atas */}
       <Image
         src={imgUrl}

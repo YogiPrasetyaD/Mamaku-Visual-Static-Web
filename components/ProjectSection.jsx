@@ -3,11 +3,17 @@
 import React, { useState, useRef, useEffect } from 'react'
 import ProjectTag from './ProjectTag'
 import ProjectCard from './ProjectCard'
+import ProjectsData from './ProjectsData'
 import NavLink from './NavLink'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import Image from 'next/image'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon, ChartBarIcon } from '@heroicons/react/24/outline'
+import dynamic from 'next/dynamic'
+import { motion, AnimatePresence } from 'framer-motion'
+import ProjectMap from './ProjectMap'
+
+const MapContainer = dynamic(() => import("./ProjectMap"), { ssr: false })
 
 const NavLinks = [
     {
@@ -29,64 +35,9 @@ const NavLinks = [
     }
 ]
 
-const ProjectsData = [
-    {
-        id: 1,
-        logo : "/square.png",
-        title: "Project One",
-        location: "JAKARTA, INDONESIA",
-        category: "CULTURE",
-        imgUrl: "/project.png",
-        tag: ["ALL", "CULTURE", "RESIDENT"],
-    },
-    {
-        id: 2,
-        logo : "/square.png",
-        title: "Project Two",
-        location: "JAKARTA, INDONESIA",
-        category: "INTERIOR",
-        imgUrl: "/project.png",
-        tag: ["ALL", "RESIDENT", "INTERIOR"],
-    },
-    {
-        id: 3,
-        logo : "/square.png",
-        title: "Project Three",
-        location: "JAKARTA, INDONESIA",
-        category: "SPACE",
-        imgUrl: "/project.png",
-        tag: ["ALL", "INFRASTRUCTURE", "SPACE"],
-    },
-    {
-        id: 4,
-        logo : "/square.png",
-        title: "Project Four",
-        location: "JAKARTA, INDONESIA",
-        category: "INFRASTRUCTURE",
-        imgUrl: "/project.png",
-        tag: ["ALL", "RESIDENT", "SPACE"],
-    },
-    {
-        id: 5,
-        logo : "/square.png",
-        title: "Project Five",
-        location: "JAKARTA, INDONESIA",
-        category: "CULTURE",
-        imgUrl: "/project.png",
-        tag: ["ALL", "CULTURE", "INTERIOR"],
-    },
-    {
-        id: 6,
-        logo : "/square.png",
-        title: "Project Six",
-        location: "JAKARTA, INDONESIA",
-        category: "INFRASTRUCTURE",
-        imgUrl: "/project.png",
-        tag: ["ALL", "INFRASTRUCTURE", "CULTURE"],
-    }
-]
-
 const ProjectSection = () => {
+    const [isExpanded, setIsExpanded] = useState(null);
+    const cardRefs = useRef([]);
     const[navOpen, setNavOpen] = useState(false);
     const [showProjectDropdown,setShowProjectDropdown] = useState(false);
     const [showSearchInput, setShowSearchInput]= useState(false);
@@ -130,6 +81,19 @@ const ProjectSection = () => {
     const toggleSearchInput = () => {
         setShowSearchInput(!showSearchInput);
     }
+
+    const handleToggleExpanded = (index) => {
+        setIsExpanded(isExpanded === index ? null : index);
+    }
+
+    useEffect(() => {
+        if (isExpanded !== null && cardRefs.current[isExpanded]) {
+            cardRefs.current[isExpanded].scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            })
+        }
+    }, [isExpanded]);
 
     return (
         <section> 
@@ -224,15 +188,52 @@ const ProjectSection = () => {
                     className="grid grid-cols-1 justify-items-center gap-8 px-6 md:px-12 lg:px-24 mb-8 mt-12 w-full max-w-6xl"
                 >
                     {filteredProjects.map((project, index) => (
-                    <li key={index}>
-                        <ProjectCard
-                        logo={project.logo}
-                        title={project.title}
-                        category={project.category}
-                        location={project.location}
-                        imgUrl={project.imgUrl}
-                        />
-                    </li>
+                        <li
+                            key={index}
+                            className={`flex flex-col items-center transition-all duration-500 w-full ${
+                                isExpanded === index ? "max-w-[720px]" : "max-w-[450px]"
+                            } ${isExpanded !== null && isExpanded !== index ? "opacity-30" : "opacity-100"}`}
+                            >
+                            {/* COVER tetap settingan lama */}
+                            <div onClick={() => setIsExpanded(isExpanded === index ? null : index)}>
+                                <ProjectCard
+                                logo={project.logo}
+                                title={project.title}
+                                category={project.category}
+                                location={project.location}
+                                imgUrl={project.imgUrl}
+                                />
+                            </div>
+
+                            {/* EXPANDED CONTENT muncul di bawah cover */}
+                            {isExpanded === index && (
+                                <div className="mt-6 w-full flex flex-col gap-4 items-center">
+                                    {project.details?.map((item, i) => (
+                                    <div key={i} className="flex flex-col items-center gap-4 mb-6">
+                                        {item.image && (
+                                        <img
+                                            src={item.image}
+                                            alt={`Project ${i}`}
+                                            className="w-auto max-w-[720px] h-auto object-contain shadow-md"
+                                        />
+                                        )}
+                                        {item.description && (
+                                        <p className="text-gray-700 items-center justify-center max-w-[400px]">
+                                            {item.description}
+                                        </p>
+                                        )}
+                                    </div>
+                                    ))}
+
+                                    {project.map && (
+                                    <div className="w-full h-[300px] rounded-lg overflow-hidden bg-gray-200">
+                                        <ProjectMap latitude={project.map.lat} longitude={project.map.lng} />
+                                    </div>
+                                    )}
+                                </div>
+                            )}
+                        </li>
+
                     ))}
                 </ul>
             </div>

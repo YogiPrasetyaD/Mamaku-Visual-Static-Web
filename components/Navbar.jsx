@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 const NavLinks = [
     {
         "title": "HOME",
-        "path": "#home"
+        "path": "/"
     },
     {
         "title": "PROJECTS",
@@ -19,11 +19,11 @@ const NavLinks = [
     },
     {
         "title": "ABOUT",
-        "path": "#about",
+        "path": "/about",
     },
     {
         "title": "CONTACT",
-        "path": "#contact"
+        "path": "/contact"
     }
 ]
 
