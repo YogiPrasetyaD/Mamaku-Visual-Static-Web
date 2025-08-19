@@ -39,7 +39,7 @@ const About = () => {
                         <h1 className='font-normal text-head-2-48 md:text-head-1-64 text-dev-black'>MAMAKU</h1>
                     </div>
             </div>
-            <div>
+            <div className='mt-20'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     <div className='justify-center text-justify gap-4'>
                                 <p className='text-body-sm-14 font-bold md:text-body-xl-24 text-dev-black'>VISI</p>
@@ -51,7 +51,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-row items-center mt-20'>
+            {/* <div className='flex flex-row items-center mt-20'>
                     <div className='flex items-center gap-3 md:gap-5'>
                         <Image
                             src="/logohitam.png"
@@ -76,7 +76,7 @@ const About = () => {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </div> */}
         </div>
     )
 }

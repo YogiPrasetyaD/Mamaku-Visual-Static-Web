@@ -1,172 +1,83 @@
 const ProjectsData = [
-    {
+  {
     id: 1,
     logo: "/square.png",
-    title: "Project One",
-    imgUrl: "/project1.jpg",
+    title: "Grafiti House",
     location: "JAKARTA, INDONESIA",
-    category: "CULTURE",
-    tag: ["ALL", "CULTURE", "RESIDENT"],
+    category: "PRIVATE",
+    tag: ["ALL", "PRIVATE"], 
     details: [
-        {
-        image: "/project1.jpg",
-        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        {
-        image: "/project2.png",
-        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        {
-        image: "/project3.jpg",
-        description: ""
-        },
-        {
-        image: "/project.png",
-        description: "Deskripsi 4 untuk Project One"
-        },
-        {
-        description: "Deskripsi 5 untuk Project One"
-        }
+      { image: "/GrafiItti/01.jpg", description: "Hunian private bernuansa modern minimalis." },
+      { image: "/GrafiItti/02.jpg", description: "Interior rumah dengan pencahayaan natural." },
+      { image: "/GrafiItti/03.jpg", description: "" },
+      { image: "/GrafiItti/4.jpg", description: "" },
+      { image: "/GrafiItti/5.jpg", description: "" },
     ],
-    map: {
-        lat: -6.2088,
-        lng: 106.8456
-    }
-    },
+    map: { lat: -6.2088, lng: 106.8456 },
+  },
   {
     id: 2,
     logo: "/square.png",
-    title: "Project Two",
-    imgUrl: "/project2.png",
+    title: "Chiganoz Barbershop",
     location: "BALI, INDONESIA",
     category: "INTERIOR",
-    tag: ["ALL", "RESIDENT", "INTERIOR"],
-    images: [
-      "/project2-1.png",
-      "/project2-2.png",
-      "/project2-3.png",
-      "/project2-4.png",
-      "/project2-5.png",
+    tag: ["ALL", "INTERIOR"], 
+    details: [
+      { image: "/Chiganoz/chiganoz5.jpg", description: "Desain interior barbershop modern industrial." },
+      { image: "/Chiganoz/chiganoz2.jpg", description: "Penggunaan material kayu dan metal." },
+      { image: "/Chiganoz/chiganoz4.jpg" },
+      { image: "/Chiganoz/chiganoz3.jpg" },
+      { image: "/Chiganoz/chiganoz1.jpg", description: "Penggunaan material kayu dan metal." },
     ],
-    descriptions: [
-      "Deskripsi 1 untuk Project Two",
-      "Deskripsi 2 untuk Project Two",
-      "Deskripsi 3 untuk Project Two",
-      "Deskripsi 4 untuk Project Two",
-      "Deskripsi 5 untuk Project Two",
-    ],
-    map: {
-      lat: -8.4095,
-      lng: 115.1889, // Bali
-    },
+    map: { lat: -8.4095, lng: 115.1889 },
   },
   {
     id: 3,
     logo: "/square.png",
-    title: "Project Three",
-    imgUrl: "/project2.png",
-    location: "BANDUNG, INDONESIA",
-    category: "SPACE",
-    tag: ["ALL", "INFRASTRUCTURE", "SPACE"],
-    images: [
-      "/project3-1.png",
-      "/project3-2.png",
-      "/project3-3.png",
-      "/project3-4.png",
-      "/project3-5.png",
+    title: "Pelindo Lobby Render",
+    location: "SURABAYA, INDONESIA",
+    category: "RENDER",
+    tag: ["ALL", "RENDER"], 
+    details: [
+      { image: "/Pelindo/4.jpg", description: "Render visual lobby utama." },
+      { image: "/Pelindo/2.jpg", description: "Desain area penerimaan tamu modern." },
+      { image: "/Pelindo/3.jpg", description: "" },
+      { image: "/Pelindo/1.jpg", description: "" },
+      { image: "/Pelindo/5.jpg", description: "" },
     ],
-    descriptions: [
-      "Deskripsi 1 untuk Project Three",
-      "Deskripsi 2 untuk Project Three",
-      "Deskripsi 3 untuk Project Three",
-      "Deskripsi 4 untuk Project Three",
-      "Deskripsi 5 untuk Project Three",
-    ],
-    map: {
-      lat: -6.9175,
-      lng: 107.6191, // Bandung
-    },
+    map: { lat: -7.2575, lng: 112.7521 },
   },
   {
     id: 4,
     logo: "/square.png",
-    title: "Project Four",
-    imgUrl: "/project2.png",
+    title: "Taman ITS",
     location: "SURABAYA, INDONESIA",
-    category: "INFRASTRUCTURE",
-    tag: ["ALL", "RESIDENT", "SPACE"],
-    images: [
-      "/project4-1.png",
-      "/project4-2.png",
-      "/project4-3.png",
-      "/project4-4.png",
-      "/project4-5.png",
+    category: "PUBLIC",
+    tag: ["ALL", "PUBLIC"], 
+    details: [
+      { image: "/TAMANITS/1.jpg", description: "Ruang publik dan area hijau kampus ITS." },
+      { image: "/TAMANITS/2.jpg", description: "Tempat interaksi mahasiswa di luar ruangan." },
+      { image: "/TAMANITS/3.jpg", description: "Ruang publik dan area hijau kampus ITS." },
+      { image: "/TAMANITS/4.jpg", description: "Tempat interaksi mahasiswa di luar ruangan." },
     ],
-    descriptions: [
-      "Deskripsi 1 untuk Project Four",
-      "Deskripsi 2 untuk Project Four",
-      "Deskripsi 3 untuk Project Four",
-      "Deskripsi 4 untuk Project Four",
-      "Deskripsi 5 untuk Project Four",
-    ],
-    map: {
-      lat: -7.2575,
-      lng: 112.7521, // Surabaya
-    },
+    map: { lat: -7.2825, lng: 112.7954 },
   },
   {
     id: 5,
     logo: "/square.png",
-    title: "Project Five",
-    imgUrl: "/project2.png",
-    location: "YOGYAKARTA, INDONESIA",
-    category: "CULTURE",
-    tag: ["ALL", "CULTURE", "INTERIOR"],
-    images: [
-      "/project5-1.png",
-      "/project5-2.png",
-      "/project5-3.png",
-      "/project5-4.png",
-      "/project5-5.png",
+    title: "Satu Atap",
+    location: "BALI, INDONESIA",
+    category: "CONCEPTUALS",
+    tag: ["ALL", "CONCEPTUALS"], 
+    details: [
+      { image: "/SatuAtap/1.png", description: "Konsep hunian bersama dengan ruang komunal." },
+      { image: "/SatuAtap/2.jpg", description: "Fasilitas bersama untuk interaksi penghuni." },
+      { image: "/SatuAtap/3.jpg", description: "" },
+      { image: "/SatuAtap/4.jpg", description: "" },
+      { image: "/SatuAtap/5.jpg", description: "" },
+      { image: "/SatuAtap/6.jpg", description: "" },
     ],
-    descriptions: [
-      "Deskripsi 1 untuk Project Five",
-      "Deskripsi 2 untuk Project Five",
-      "Deskripsi 3 untuk Project Five",
-      "Deskripsi 4 untuk Project Five",
-      "Deskripsi 5 untuk Project Five",
-    ],
-    map: {
-      lat: -7.7956,
-      lng: 110.3695, // Yogyakarta
-    },
-  },
-  {
-    id: 6,
-    logo: "/square.png",
-    title: "Project Six",
-    imgUrl: "/project2.png",
-    location: "MEDAN, INDONESIA",
-    category: "INFRASTRUCTURE",
-    tag: ["ALL", "INFRASTRUCTURE", "CULTURE"],
-    images: [
-      "/project6-1.png",
-      "/project6-2.png",
-      "/project6-3.png",
-      "/project6-4.png",
-      "/project6-5.png",
-    ],
-    descriptions: [
-      "Deskripsi 1 untuk Project Six",
-      "Deskripsi 2 untuk Project Six",
-      "Deskripsi 3 untuk Project Six",
-      "Deskripsi 4 untuk Project Six",
-      "Deskripsi 5 untuk Project Six",
-    ],
-    map: {
-      lat: 3.5952,
-      lng: 98.6722, // Medan
-    },
+    map: { lat: -7.2825, lng: 112.7954 },
   },
 ];
 

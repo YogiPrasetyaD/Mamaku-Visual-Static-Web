@@ -1,7 +1,6 @@
 "use client"
 import React from "react"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
-import { MapPinIcon } from "@heroicons/react/24/outline"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
 import ProjectsData from "./ProjectsData"
@@ -12,8 +11,6 @@ const icon = L.icon({
   iconSize: [25, 25],
   iconAnchor: [12, 2],
 })
-
-const location = ProjectsData.find(project => project.id === 1)?.location
 
 const ProjectMap = ({ latitude, longitude }) => {
   return (

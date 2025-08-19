@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import ContactMap from './ContactMap'
 
 const ContactUs = () => {
     return (
@@ -21,7 +22,7 @@ const ContactUs = () => {
                     If you have any questions or need further information, please feel free to reach out to us.
                 </p>
             </div>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
+            <div className='grid md:grid-cols-2 gap-20 mt-4'>
                 <div className='flex flex-col text-body-xs-12 md:text-body-sm-14 mt-2'>
                     <div className='flex flex-col gap-1 p-2'>
                         <label className='text-dev-black'>Email</label>
@@ -41,6 +42,34 @@ const ContactUs = () => {
                     </div>
                     <div className='flex flex-col p-2 md:col-span-2 lg:col-span-3'>
                         <button id='' className='border text-white bg-dev-black items-center justify-center p-2 mt-5 rounded-sm '>Submit</button>
+                    </div>
+                </div>
+                <div>
+                    <ContactMap />
+                    <div>
+                        <h3 className='text-dev-black font-semibold mt-4'>Our Location</h3>
+                        <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>Denpasar, Bali, Indonesia</p>
+                    </div>
+                    <div className='flex flex-row gap-2 mt-4'>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                src="/ig.svg"
+                                alt="Instagram"
+                                width={24}
+                                height={24}
+                                className="cursor-pointer"
+                            />
+                        </a>
+
+                        <a href="https://wa.me/6289605699929?text=Halo%20saya%20tertarik%20untuk%20kerjasama%20dengan%20Infrava%20Labs" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                src="/wa.svg"
+                                alt="WhatsApp"
+                                width={24}
+                                height={24}
+                                className="cursor-pointer"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>

@@ -86,12 +86,22 @@ const ProjectSection = () => {
         setIsExpanded(isExpanded === index ? null : index);
     }
 
+    // useEffect(() => {
+    //     if (isExpanded !== null && cardRefs.current[isExpanded]) {
+    //         cardRefs.current[isExpanded].scrollIntoView({
+    //             behavior: "smooth",
+    //             block: "start",
+    //         })
+    //     }
+    // }, [isExpanded]);
+
     useEffect(() => {
         if (isExpanded !== null && cardRefs.current[isExpanded]) {
-            cardRefs.current[isExpanded].scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            })
+            const element = cardRefs.current[isExpanded];
+            const yOffset = -80; // offset biar ga ketutupan header
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({ top: y, behavior: "smooth" });
         }
     }, [isExpanded]);
 
@@ -171,11 +181,11 @@ const ProjectSection = () => {
                     <div className='fixed top-14 left-0 right-0 z-5 bg-white'>
                         <div className='flex flex-wrap items-center justify-center gap-10 px-10 py-2'>
                             <ProjectTag name="ALL" onClick={handleTagChange} isSelected={tag === "ALL"} />
-                            <ProjectTag name="CULTURE" onClick={handleTagChange} isSelected={tag === "CULTURE"} />
-                            <ProjectTag name="RESIDENT" onClick={handleTagChange} isSelected={tag === "RESIDENT"} />
+                            <ProjectTag name="PRIVATE" onClick={handleTagChange} isSelected={tag === "PRIVATE"} />
+                            <ProjectTag name="PUBLIC" onClick={handleTagChange} isSelected={tag === "PUBLIC"} />
                             <ProjectTag name="INTERIOR" onClick={handleTagChange} isSelected={tag === "INTERIOR"} />
-                            <ProjectTag name="INFRASTRUCTURE" onClick={handleTagChange} isSelected={tag === "INFRASTRUCTURE"} />
-                            <ProjectTag name="SPACE" onClick={handleTagChange} isSelected={tag === "SPACE"} />
+                            <ProjectTag name="RENDER" onClick={handleTagChange} isSelected={tag === "RENDER"} />
+                            <ProjectTag name="CONCEPTUALS" onClick={handleTagChange} isSelected={tag === "CONCEPTUALS"} />
                         </div>
                     </div>
                 )}
@@ -190,6 +200,7 @@ const ProjectSection = () => {
                     {filteredProjects.map((project, index) => (
                         <li
                             key={index}
+                            ref={(el) => (cardRefs.current[index] = el)}
                             className={`flex flex-col items-center transition-all duration-500 w-full ${
                                 isExpanded === index ? "max-w-[720px]" : "max-w-[450px]"
                             } ${isExpanded !== null && isExpanded !== index ? "opacity-30" : "opacity-100"}`}
@@ -201,39 +212,60 @@ const ProjectSection = () => {
                                 title={project.title}
                                 category={project.category}
                                 location={project.location}
-                                imgUrl={project.imgUrl}
+                                imgUrl={project.details[0].image}
                                 />
                             </div>
 
                             {/* EXPANDED CONTENT muncul di bawah cover */}
                             {isExpanded === index && (
-                                <div className="mt-6 w-full flex flex-col gap-4 items-center">
-                                    {project.details?.map((item, i) => (
-                                    <div key={i} className="flex flex-col items-center gap-4 mb-6">
+                                <div className="mt-6 w-full flex flex-col gap-6 items-center">
+                                    {/* COVER BESAR */}
+                                    {project.details?.[0]?.image && (
+                                    <div className="w-full flex flex-col items-center gap-10 mb-10">
+                                        <ProjectCard
+                                        logo={project.logo}
+                                        title={project.title}
+                                        category={project.category}
+                                        location={project.location}
+                                        imgUrl={project.details[0].image}
+                                        size="large"
+                                        />
+                                        {/* langsung deskripsi dari cover */}
+                                        {project.details[0].description && (
+                                        <p className="text-gray-700 justify-center text-sm sm:text-base max-w-[240px] md:max-w-[360px]">
+                                            {project.details[0].description}
+                                        </p>
+                                        )}
+                                    </div>
+                                    )}
+
+                                    {/* DETAILS SELANJUTNYA */}
+                                    {project.details?.slice(1).map((item, i) => (
+                                    <div key={i} className="flex flex-col items-center gap-10 mb-10">
                                         {item.image && (
                                         <img
                                             src={item.image}
-                                            alt={`Project ${i}`}
-                                            className="w-auto max-w-[720px] h-auto object-contain shadow-md"
+                                            alt={`Detail ${i + 2}`}
+                                            className="w-full max-w-full sm:max-w-[480px] md:max-w-[720px] h-auto object-contain shadow-md"
                                         />
                                         )}
                                         {item.description && (
-                                        <p className="text-gray-700 items-center justify-center max-w-[400px]">
+                                        <p className="text-gray-700 justify-center text-sm sm:text-base max-w-[240px] md:max-w-[360px]">
                                             {item.description}
                                         </p>
                                         )}
                                     </div>
                                     ))}
 
+                                    {/* MAP */}
                                     {project.map && (
-                                    <div className="w-full h-[300px] rounded-lg overflow-hidden bg-gray-200">
+                                    <div className="w-full h-[250px] sm:h-[300px] rounded-lg overflow-hidden bg-gray-200">
                                         <ProjectMap latitude={project.map.lat} longitude={project.map.lng} />
                                     </div>
                                     )}
                                 </div>
                             )}
                         </li>
-
                     ))}
                 </ul>
             </div>
