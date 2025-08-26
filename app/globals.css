@@ -27,6 +27,8 @@
   --text-body-md-16: 16px;
   --text-body-sm-14: 14px;
   --text-body-xs-12: 12px;
+  --text-body-xms-11: 11px;
+  --text-body-xxs-10: 10px;
 }
 
 @media (prefers-color-scheme: dark) {

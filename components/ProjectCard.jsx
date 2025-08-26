@@ -8,47 +8,49 @@ const ProjectCard = ({
   location, 
   imgUrl, 
   onClick, 
-  size = "small" // default kecil untuk grid
+  size = "small" // default kecil untuk mobile
 }) => {
-  // Atur style sesuai size
-  const imageSize = size === "large" 
-    ? "w-full h-auto object-contain" 
-    : "w-112 h-75";
 
-  const containerSize = size === "large" 
+  // Container: mobile kecil, md+ pakai max-w semula
+  const containerSize = size === "large"
     ? "flex flex-col items-start w-full max-w-full sm:max-w-[480px] md:max-w-[720px]" 
-    : "flex flex-col items-start mb-1";
+    : "flex flex-col items-start mb-4 w-[250px] md:w-full"; // mobile 250px, md+ full width
 
-  // Style untuk teks dan logo
-  const logoSize = size === "large" ? "w-16 h-16" : "w-12 h-12";
-  const categoryText = size === "large" ? "text-body-sm-14" : "text-body-xs-12";
-  const titleText = size === "large" ? "text-body-md-16" : "text-body-sm-14";
+  // Cover Image: proporsi 3:2 untuk semua size
+  const imageClass = "w-full aspect-[3/2] relative shadow-md";
+
+  // Logo
+  const logoSize = size === "large" ? "w-16 h-16" : "w-8 h-8 md:w-12 md:h-12"; // mobile kecil, md+ default
+
+  // Teks
+  const categoryText = size === "large" ? "text-body-sm-14" : "text-body-xxs-10 md:text-body-xs-12"; // mobile 8px, md+ default
+  const titleText = size === "large" ? "text-body-md-16" : "text-body-xxs-10 md:text-body-sm-14"; // mobile 8px, md+ default
 
   return (
     <div onClick={onClick} className={containerSize}>
       {/* Cover Image */}
-      <Image
-        src={imgUrl}
-        alt={`${title} Image`}
-        width={size === "large" ? 720 : 400}
-        height={size === "large" ? 500 : 300}
-        className={imageSize}
-      />
+      <div className={imageClass}>
+        <Image
+          src={imgUrl}
+          alt={`${title} Image`}
+          fill
+          className="object-cover"
+          sizes={size === "large" ? "100vw" : "250px"}
+        />
+      </div>
 
       {/* Logo + Info */}
-      <div className="flex items-center gap-4 mt-2 w-full">
-        {/* Logo */}
+      <div className="flex items-center gap-2 mt-2 w-full"> 
         <Image
           src={logo}
           alt={`${title} Logo`}
-          width={size === "large" ? 64 : 50}
-          height={size === "large" ? 64 : 50}
+          width={size === "large" ? 64 : 32} // mobile kecil
+          height={size === "large" ? 64 : 32}
           className={`${logoSize} object-contain`}
         />
 
-        {/* Info */}
         <div className="flex flex-col w-full">
-          <div className={`flex flex-row justify-between text-dev-grey ${categoryText}`}>
+          <div className={`flex justify-between text-dev-grey ${categoryText}`}>
             <span>{category}</span>
             <span>{location}</span>
           </div>

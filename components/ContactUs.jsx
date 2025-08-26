@@ -45,7 +45,9 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div>
-                    <ContactMap />
+                    <div className='h-50 md:h-full'>
+                        <ContactMap />
+                    </div>
                     <div>
                         <h3 className='text-dev-black font-semibold mt-4'>Our Location</h3>
                         <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>Denpasar, Bali, Indonesia</p>
