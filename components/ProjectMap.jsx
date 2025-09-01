@@ -31,7 +31,10 @@ const ProjectMap = ({ latitude, longitude }) => {
             icon={icon}
           >
             <Popup>
-              <span className="font-semibold">{project.location}</span>
+              <div className="flex flex-col gap-1">
+                <span className="font-semibold">{project.title}</span>
+                <span className="font-light">{project.location}</span>
+              </div>
             </Popup>
           </Marker>
         ) : null
