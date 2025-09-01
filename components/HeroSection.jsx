@@ -8,27 +8,27 @@ import { useRouter } from 'next/navigation'
 const projects = [
     {
         id: 1,
-        imgUrl: "/Grafiitti/01.jpg",
+        imgUrl: "/grafitti/01.jpg",
         category: "PRIVATE",
     },
     {
         id: 2,
-        imgUrl: "/TAMANITS/1.jpg",
+        imgUrl: "/tamanits/1.jpg",
         category: "PUBLIC",
     },
     {
         id: 3,
-        imgUrl: "/Chiganoz/chiganoz4.jpg",
+        imgUrl: "/chiganoz/chiganoz4.jpg",
         category: "INTERIOR",
     },
     {
         id: 4,
-        imgUrl: "/Pelindo/3.jpg",
+        imgUrl: "/pelindo/3.jpg",
         category: "RENDER",
     },
     {
         id: 5,
-        imgUrl: "/SatuAtap/1.png",
+        imgUrl: "/satuatap/1.png",
         category: "CONCEPTUALS",
     }
 ]
