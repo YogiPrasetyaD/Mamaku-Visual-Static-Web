@@ -1,41 +1,50 @@
 "use client"
 
+import React, { useState, useEffect } from "react"
 import dynamic from "next/dynamic"
-import React from "react"
 import "leaflet/dist/leaflet.css"
-import L from "leaflet"
 import ProjectsData from "./ProjectsData"
 
-// Fix marker icon agar tampil
-const icon = L.icon({
-  iconUrl: "/icon-marker.png", // pastikan file ada di folder public
-  iconSize: [25, 25],
-  iconAnchor: [12, 2],
-})
-
+// dynamic import supaya gak render di server
 const MapContainer = dynamic(
-  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  () => import("react-leaflet").then((m) => m.MapContainer),
   { ssr: false }
 )
 const TileLayer = dynamic(
-  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  () => import("react-leaflet").then((m) => m.TileLayer),
   { ssr: false }
 )
 const Marker = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Marker),
+  () => import("react-leaflet").then((m) => m.Marker),
   { ssr: false }
 )
 const Popup = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Popup),
+  () => import("react-leaflet").then((m) => m.Popup),
   { ssr: false }
 )
 
 const ProjectMap = ({ latitude, longitude }) => {
+  const [icon, setIcon] = useState(null)
+
+  useEffect(() => {
+    import("leaflet").then((L) => {
+      const customIcon = L.icon({
+        iconUrl: "/icon-marker.png", // taruh di folder public/
+        iconSize: [25, 25],
+        iconAnchor: [12, 2],
+      })
+      setIcon(customIcon)
+    })
+  }, [])
+
+  // kalau icon belum siap, jangan render map
+  if (!icon) return null
+
   return (
     <MapContainer
       center={[latitude, longitude]}
       zoom={13}
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: "500px", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
