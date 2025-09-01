@@ -1,16 +1,34 @@
 "use client"
+
+import dynamic from "next/dynamic"
 import React from "react"
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
 import ProjectsData from "./ProjectsData"
 
 // Fix marker icon agar tampil
 const icon = L.icon({
-  iconUrl: "icon-marker.png",
+  iconUrl: "/icon-marker.png", // pastikan file ada di folder public
   iconSize: [25, 25],
   iconAnchor: [12, 2],
 })
+
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+)
+const TileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false }
+)
+const Marker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Marker),
+  { ssr: false }
+)
+const Popup = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Popup),
+  { ssr: false }
+)
 
 const ProjectMap = ({ latitude, longitude }) => {
   return (
