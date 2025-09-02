@@ -68,7 +68,7 @@ const HeroSection = () => {
                             onClick={() => handleClick(project.category)}
                             className='cursor-pointer'>
                                 <ProjectCardHero
-                                    imgUrl = {project.imgUrl}
+                                    imgUrl = {project.imgUrl.toLowerCase()}
                                     category={project.category}
                                 />
                             </li>

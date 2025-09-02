@@ -220,7 +220,7 @@ const ProjectSection = () => {
                                 title={project.title}
                                 category={project.category}
                                 location={project.location}
-                                imgUrl={project.details[0].image}
+                                imgUrl={project.details[0].image.toLowerCase()}
                                 size={isExpanded === index ? "large" : "small"}
                             />
 
@@ -247,7 +247,7 @@ const ProjectSection = () => {
                                     <div key={i} className="flex flex-col items-center gap-10 mb-10">
                                     {item.image && (
                                         <img
-                                        src={item.image}
+                                        src={item.image.toLowerCase()}
                                         alt={`Detail ${i + 2}`}
                                         className="w-full max-w-full sm:max-w-[480px] md:max-w-[720px] h-auto object-contain shadow-md"
                                         />
