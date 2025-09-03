@@ -39,7 +39,7 @@ const HeroSection = () => {
     const router = useRouter();
 
     const handleClick = (category) => {
-        router.push(`/projects?category=${category.toLowerCase()}`);
+        router.push(`/mamaku-architecture-projects?category=${category.toLowerCase()}`);
     }
 
     return (
