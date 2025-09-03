@@ -30,16 +30,12 @@ const ProjectCard = ({
     <div onClick={onClick} className={containerSize}>
       {/* Cover Image */}
       <div className={imageClass}>
-         <Image
+        <Image
           src={imgUrl}
-          alt={`${title} Image`}
-          fill={false}
           width={720}
           height={480}
           className="object-cover w-full h-full"
-          sizes={size === "large" ? "(max-width: 768px) 100vw, 720px" : "250px"}
-          priority={size === "large"}
-          placeholder="blur"
+          sizes={size === "large" ? "100vw" : "250px"}
         />
       </div>
 
