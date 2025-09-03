@@ -101,13 +101,14 @@ const ProjectSection = () => {
     // }, [isExpanded]);
 
     useEffect(() => {
-    if (isExpanded !== null && cardRefs.current[isExpanded]) {
-        const timeout = setTimeout(() => {
-            cardRefs.current[isExpanded]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 3000) // sesuai durasi animation
-        return () => clearTimeout(timeout)
+        if (isExpanded !== null && cardRefs.current[isExpanded]) {
+            const element = cardRefs.current[isExpanded];
+            const yOffset = -80; // offset biar ga ketutupan header
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({ top: y, behavior: "smooth" });
         }
-    }, [isExpanded])
+    }, [isExpanded]);
 
     useEffect(() => {
         const checkMobile = () => { setisMobile(window.innerWidth < 768) };
