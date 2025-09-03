@@ -301,8 +301,8 @@ const ProjectSection = () => {
                                         <Image
                                         src={item.image}
                                         alt={`Detail ${i + 2} Image Mamaku Studio`}
-                                        width={2000}
-                                        height={2000}
+                                        width={800}
+                                        height={600}
                                         className="w-full max-w-full sm:max-w-[480px] md:max-w-[720px] h-auto object-contain shadow-md"
                                         />
                                     )}
