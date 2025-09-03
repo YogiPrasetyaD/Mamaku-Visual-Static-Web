@@ -246,7 +246,7 @@ const ProjectSection = () => {
                                 {project.details?.slice(1).map((item, i) => (
                                     <div key={i} className="flex flex-col items-center gap-10 mb-10">
                                     {item.image && (
-                                        <img
+                                        <Image
                                         src={item.image.toLowerCase()}
                                         alt={`Detail ${i + 2}`}
                                         className="w-full max-w-full sm:max-w-[480px] md:max-w-[720px] h-auto object-contain shadow-md"

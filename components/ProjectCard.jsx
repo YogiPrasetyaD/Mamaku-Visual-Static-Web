@@ -33,8 +33,8 @@ const ProjectCard = ({
         <Image
           src={imgUrl}
           alt={`${title} Image`}
-          fill
-          className="object-cover"
+          width={720}
+          height={480}
           sizes={size === "large" ? "100vw" : "250px"}
         />
       </div>
