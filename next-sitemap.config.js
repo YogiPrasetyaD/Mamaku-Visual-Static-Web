@@ -11,7 +11,7 @@ module.exports = {
     let priority = 0.7;
 
     if (path === "/") priority = 1.0; // Home lebih penting
-    if (path.startsWith("/architecture-projects")) priority = 0.9; // portofolio utama
+    if (path.startsWith("/mamaku-architecture-projects")) priority = 0.9; // portofolio utama
     if (path.startsWith("/about-mamaku-studio")) priority = 0.6;
     if (path.startsWith("/contact-architecture-mamaku")) priority = 0.5;
 
