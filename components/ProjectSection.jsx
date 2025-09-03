@@ -63,9 +63,9 @@ const ProjectSection = () => {
         setTag(newTag);
 
         if(newTag === "ALL"){
-            router.push('/projects')
+            router.push('/mamaku-architecture-projects')
         }else{
-            router.push(`/projects?category=${newTag.toLowerCase()}`)
+            router.push(`/mamaku-architecture-projects?category=${newTag.toLowerCase()}`)
         }
     }
 
