@@ -58,9 +58,14 @@ const HeroSection = () => {
             </div>
             <div className='flex flex-col'>
                 <div className='grid grid-cols-2 lg:grid-cols-3 justify-center text-justify gap-4'>
-                    <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!</p>
-                    <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!</p>
+                    <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>
+                        Mamaku Studio adalah portofolio arsitektur dan desain bangunan yang menghadirkan solusi kreatif untuk hunian pribadi, ruang publik, dan interior komersial. Kami menekankan desain modern, fungsional, dan estetika yang harmonis dengan lingkungan sekitar. Setiap proyek dikerjakan dengan pendekatan personal, memperhatikan kebutuhan klien, material berkualitas, pencahayaan alami, serta integrasi ruang indoor dan outdoor untuk kenyamanan maksimal. Portofolio kami mencakup desain rumah minimalis, interior barbershop modern industrial, lobby kantor, ruang publik kampus, dan konsep hunian bersama yang mendukung interaksi sosial. Dengan pengalaman mendalam dalam arsitektur Indonesia, Mamaku Studio memastikan setiap detail proyek, mulai dari fasad, interior, hingga landscape, mencerminkan kualitas, kreativitas, dan estetika tinggi.
+                    </p>
+                    <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>
+                        Tim kami berkomitmen memberikan pelayanan arsitektur lengkap, mulai dari konsultasi desain, visualisasi 3D, hingga pengawasan konstruksi. Kami percaya bahwa desain arsitektur bukan sekadar estetika, tetapi juga menciptakan pengalaman hidup yang nyaman, efisien, dan berkelanjutan. Setiap proyek dirancang dengan memperhatikan aspek cahaya, ventilasi, sirkulasi ruang, dan detail finishing material. Portofolio kami menunjukkan kemampuan dalam merancang ruang multifungsi, memaksimalkan ruang terbatas, dan menghadirkan identitas unik untuk setiap klien. Kami juga mengutamakan integrasi teknologi modern dan konsep berkelanjutan untuk meningkatkan kualitas hidup penghuni, sekaligus menjaga lingkungan sekitar. Melalui pendekatan holistik ini, Mamaku Studio berupaya menciptakan karya arsitektur yang tidak hanya indah, tetapi juga fungsional, nyaman, dan tahan lama.
+                    </p>
                 </div>
+
                 <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4 mt-34 md:mt-38'>
                     {
                         projects.map((project) => (

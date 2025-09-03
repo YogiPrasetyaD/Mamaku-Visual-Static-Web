@@ -42,12 +42,16 @@ const About = () => {
             <div className='mt-20'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     <div className='justify-center text-justify gap-4'>
-                                <p className='text-body-sm-14 font-bold md:text-body-xl-24 text-dev-black'>VISI</p>
-                                <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!</p>
+                        <p className='text-body-sm-14 font-bold md:text-body-xl-24 text-dev-black'>VISI</p>
+                        <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>
+                        Menjadi studio arsitektur terkemuka yang menghadirkan desain bangunan kreatif, modern, dan fungsional. Kami bertujuan menciptakan ruang yang nyaman, estetis, dan berkelanjutan, menggabungkan estetika modern dengan kebutuhan klien serta lingkungan sekitarnya. Setiap karya dirancang untuk memberi pengalaman hidup yang optimal.
+                        </p>
                     </div>
                     <div className='justify-center text-justify gap-4'>
-                                <p className='text-body-sm-14 font-bold md:text-body-xl-24 text-dev-black'>MISI</p>
-                                <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!</p>
+                        <p className='text-body-sm-14 font-bold md:text-body-xl-24 text-dev-black'>MISI</p>
+                        <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>
+                        Memberikan layanan arsitektur lengkap mulai dari konsultasi desain, visualisasi 3D, hingga supervisi konstruksi. Mengutamakan kualitas, detail, dan integrasi teknologi modern. Setiap proyek dirancang untuk memaksimalkan kenyamanan, efisiensi, dan estetika, sekaligus mendukung keberlanjutan lingkungan dan identitas unik klien.
+                        </p>
                     </div>
                 </div>
             </div>

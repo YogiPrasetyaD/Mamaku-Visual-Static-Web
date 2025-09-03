@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Mamaku Studio | Portofolio Arsitektur & Desain Bangunan",
   description:
-    "Mamaku Studio adalah portofolio arsitektur yang menampilkan karya desain rumah, interior, eksterior, dan bangunan kreatif dengan sentuhan modern dan fungsional. Temukan informasi tentang proyek kami, tim, dan cara menghubungi Mamaku Studio.",
+    "Mamaku Studio – portofolio arsitektur & desain rumah, interior, eksterior modern. Temukan proyek, tim, dan cara hubungi kami.",
   keywords: [
     "Mamaku Studio",
     "portofolio arsitektur",
