@@ -9,7 +9,7 @@ const ProjectCardHero = ({ imgUrl, category }) => {
                 alt="Logo"
                 width={427}
                 height={24}
-                className='flex items-center justify-center aspect-[3/2] w-full'/>
+                className='flex items-center justify-center object-cover aspect-[3/2] w-full'/>
             <div className='flex items-center mt-2'>
                 <FolderIcon className='w-4 h-4 text-dev-grey mr-1'
                 />
