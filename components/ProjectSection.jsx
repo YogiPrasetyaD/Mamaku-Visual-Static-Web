@@ -256,76 +256,95 @@ const ProjectSection = () => {
                     className="grid grid-cols-1 justify-items-center gap-2 md:gap-6 px-6 md:px-12 lg:px-24 mb-8 mt-12 w-full max-w-6xl"
                 >
                     {filteredProjects.map((project, index) => (
-                        <li
-                            key={index}
-                            ref={(el) => (cardRefs.current[index] = el)}
-                            className={`flex flex-col items-center transition-all duration-500 w-full ${
-                            isExpanded === index ? "max-w-[720px]" : "max-w-[450px]"
-                            } ${isExpanded !== null && isExpanded !== index ? "opacity-30" : "opacity-100"}`}
-                        >
-                            {/* COVER tetap settingan lama */}
-                            <div
-                            onClick={() => setIsExpanded(isExpanded === index ? null : index)}
-                            className="w-full flex flex-col items-center gap-6 "
-                            >
-                            <ProjectCard
-                                logo={project.logo}
-                                title={project.title}
-                                category={project.category}
-                                location={project.location}
-                                imgUrl={project.details[0].image}
-                                size={isExpanded === index ? "large" : "small"}
+    <li
+        key={index}
+        ref={(el) => (cardRefs.current[index] = el)}
+        className={`flex flex-col items-center transition-all duration-500 w-full ${
+        isExpanded === index ? "max-w-[720px]" : "max-w-[450px]"
+        } ${isExpanded !== null && isExpanded !== index ? "opacity-30" : "opacity-100"}`}
+    >
+        {/* COVER dengan animasi hover */}
+        <motion.div
+            onClick={() => handleToggleExpanded(index)}
+            className="w-full flex flex-col items-center gap-6 cursor-pointer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+            <ProjectCard
+                logo={project.logo}
+                title={project.title}
+                category={project.category}
+                location={project.location}
+                imgUrl={project.details[0].image}
+                size={isExpanded === index ? "large" : "small"}
+            />
+
+            {isExpanded === index && project.details[0].description && (
+                <motion.p
+                    className="text-gray-700 justify-center text-sm sm:text-base max-w-[240px] md:max-w-[360px] gap-10 mb-10"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                >
+                    {project.details[0].description}
+                </motion.p>
+            )}
+        </motion.div>
+
+        {/* EXPANDED CONTENT dengan ANIMASI */}
+        <AnimatePresence>
+        {isExpanded === index && (
+            <motion.div
+                key="expanded-content"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="mt-6 w-full flex flex-col gap-6 items-center overflow-hidden"
+            >
+                {project.details?.slice(1).map((item, i) => (
+                    <div key={i} className="flex flex-col items-center gap-10 mb-10">
+                        {item.image && (
+                            <motion.img
+                                src={item.image}
+                                alt={`Detail ${i + 2} Image`}
+                                className="w-full max-w-full sm:max-w-[480px] md:max-w-[720px] h-auto object-contain shadow-md"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.1 * i }}
                             />
+                        )}
+                        {item.description && (
+                            <motion.p
+                                className="text-gray-700 justify-center text-sm sm:text-base max-w-[240px] md:max-w-[360px]"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.1 * i }}
+                            >
+                                {item.description}
+                            </motion.p>
+                        )}
+                    </div>
+                ))}
 
-                            {isExpanded === index && project.details[0].description && (
-                                <p className="text-gray-700 justify-center text-sm sm:text-base max-w-[240px] md:max-w-[360px] gap-10 mb-10">
-                                {project.details[0].description}
-                                </p>
-                            )}
-                            </div>
+                {/* MAP */}
+                {project.map && (
+                    <motion.div
+                        className="w-full h-[250px] sm:h-[300px] overflow-hidden bg-gray-200 z-0"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <ProjectMap latitude={project.map.lat} longitude={project.map.lng} />
+                    </motion.div>
+                )}
+            </motion.div>
+        )}
+        </AnimatePresence>
+    </li>
+))}
 
-                            {/* EXPANDED CONTENT dengan ANIMASI */}
-                            <AnimatePresence>
-                            {isExpanded === index && (
-                                <motion.div
-                                key="expanded-content"
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="mt-6 w-full flex flex-col gap-6 items-center overflow-hidden"
-                                >
-                                {/* DETAILS SELANJUTNYA */}
-                                {project.details?.slice(1).map((item, i) => (
-                                    <div key={i} className="flex flex-col items-center gap-10 mb-10">
-                                    {item.image && (
-                                        <Image
-                                        src={item.image}
-                                        alt={`Detail ${i + 2} Image Mamaku Studio`}
-                                        width={480}
-                                        height={320}                                      
-                                        className="w-full max-w-full sm:max-w-[480px] md:max-w-[720px] h-auto object-contain shadow-md"
-                                        />
-                                    )}
-                                    {item.description && (
-                                        <p className="text-gray-700 justify-center text-sm sm:text-base max-w-[240px] md:max-w-[360px]">
-                                        {item.description}
-                                        </p>
-                                    )}
-                                    </div>
-                                ))}
-
-                                {/* MAP */}
-                                {project.map && (
-                                    <div className="w-full h-[250px] sm:h-[300px] overflow-hidden bg-gray-200 z-0">
-                                    <ProjectMap latitude={project.map.lat} longitude={project.map.lng} />
-                                    </div>
-                                )}
-                                </motion.div>
-                            )}
-                            </AnimatePresence>
-                        </li>
-                    ))}
                 </ul>
             </div>
             {isExpanded !== null && (

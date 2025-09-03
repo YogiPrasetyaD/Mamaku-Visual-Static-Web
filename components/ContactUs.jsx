@@ -5,6 +5,7 @@ import Image from 'next/image'
 import ContactMap from './ContactMap'
 import { useForm } from 'react-hook-form'
 import toast, { Toaster } from 'react-hot-toast'
+import { motion } from 'framer-motion'
 
 const ContactUs = () => {
     const {
@@ -39,7 +40,14 @@ const ContactUs = () => {
     return (
         <div className='flex flex-col px-8 py-52 md:px-15 md:py-56'>
             <Toaster position='top-right' reverseOrder={false} />
-            <div className='flex flex-row items-center'>
+
+            {/* HEADER */}
+            <motion.div
+                className='flex flex-row items-center'
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
                 <div className='flex items-center gap-3 md:gap-5s'>
                     <Image
                         src="/logohitam.png"
@@ -50,79 +58,80 @@ const ContactUs = () => {
                     />
                     <h1 className='font-normal text-head-3-32 md:text-head-1-64 text-dev-black'>CONTACT US</h1>
                 </div>
-            </div>
-            <div className='flex mt-1 p-2'>
+            </motion.div>
+
+            <motion.div
+                className='flex mt-1 p-2'
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+            >
                 <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>
                     If you have any questions or need further information, please feel free to reach out to us.
                 </p>
-            </div>
-            <div className='grid md:grid-cols-2 gap-20 mt-4'>
+            </motion.div>
+
+            {/* FORM & MAP */}
+            <motion.div
+                className='grid md:grid-cols-2 gap-20 mt-4'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+            >
+                {/* FORM */}
                 <form className='flex flex-col text-body-xs-12 md:text-body-sm-14 mt-2' onSubmit={handleSubmit(onSubmit)}>
-                    <div className='flex flex-col gap-1 p-2'>
-                        <label className='text-dev-black'>Email</label>
-                        <input 
-                            id='email' 
-                            type="email" 
-                            name='email' 
-                            placeholder='youremail@example.com' 
-                            className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'
-                            {...register("email", {required: "Email is required"})}
-                        />
-                        {errors.email && (
-                            <p className="text-red-500 text-xs">{errors.email.message}</p>
-                        )}
-                    </div>
-                    <div className='flex flex-col gap-1 p-2'>
-                        <label className='text-dev-black'>Name</label>
-                        <input 
-                            id='name' 
-                            type="text" 
-                            name='name' 
-                            placeholder='Your Name' 
-                            className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'
-                            {...register("name", {required: "Name is required"})}
-                        />
-                        {errors.name && (
-                            <p className="text-red-500 text-xs">{errors.name.message}</p>
-                        )}
-                    </div>
-                    <div className='flex flex-col gap-1 p-2'>
-                        <label className='text-dev-black'>Subject</label>
-                        <input 
-                            id='subject' 
-                            type="text" 
-                            name='subject' 
-                            placeholder='Your Subject' 
-                            className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'
-                            {...register("subject", {required: "Subject is required"})}
-                        />
-                        {errors.subject && (
-                            <p className="text-red-500 text-xs">{errors.subject.message}</p>
-                        )}
-                    </div>
-                    <div className='flex flex-col gap-1 p-2'>
-                        <label className='text-dev-black'>Your Message</label>
-                        <textarea 
-                            id='message' 
-                            name='message' 
-                            rows={4} 
-                            placeholder='Im Interested on Your Project, Lets Make It Out!!' 
-                            className='truncate border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black w-full resize-y overflow-y-auto whitespace-normal break-words'
-                            {...register("message", {required: "Message is required"})}
-                        />
-                        {errors.message && (
-                            <p className="text-red-500 text-xs">{errors.message.message}</p>
-                        )}
-                    </div>
-                    <div className='flex flex-col p-2 md:col-span-2 lg:col-span-3'>
+                    {['email','name','subject','message'].map((field, i) => (
+                        <motion.div
+                            key={field}
+                            className='flex flex-col gap-1 p-2'
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 * i }}
+                        >
+                            <label className='text-dev-black'>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+                            {field !== 'message' ? (
+                                <input 
+                                    type={field === 'email' ? 'email' : 'text'}
+                                    placeholder={field === 'email' ? 'youremail@example.com' : `Your ${field.charAt(0).toUpperCase() + field.slice(1)}`} 
+                                    className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'
+                                    {...register(field, {required: `${field.charAt(0).toUpperCase() + field.slice(1)} is required`})}
+                                />
+                            ) : (
+                                <textarea 
+                                    rows={4}
+                                    placeholder='Im Interested on Your Project, Lets Make It Out!!' 
+                                    className='truncate border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black w-full resize-y overflow-y-auto whitespace-normal break-words'
+                                    {...register("message", {required: "Message is required"})}
+                                />
+                            )}
+                            {errors[field] && (
+                                <p className="text-red-500 text-xs">{errors[field]?.message}</p>
+                            )}
+                        </motion.div>
+                    ))}
+
+                    <motion.div
+                        className='flex flex-col p-2 md:col-span-2 lg:col-span-3'
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                    >
                         <button 
                             type='submit' 
                             disabled={isSubmitting} 
                             className='border text-white bg-dev-black items-center justify-center p-2 mt-5 rounded-sm '
-                            >{isSubmitting ? "Sending..." : "Submit"}</button>
-                    </div>
+                        >
+                            {isSubmitting ? "Sending..." : "Submit"}
+                        </button>
+                    </motion.div>
                 </form>
-                <div>
+
+                {/* MAP + SOCIAL */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                >
                     <div className='h-50 md:h-full'>
                         <ContactMap />
                     </div>
@@ -151,8 +160,8 @@ const ContactUs = () => {
                             />
                         </a>
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </div>
     )
 }
