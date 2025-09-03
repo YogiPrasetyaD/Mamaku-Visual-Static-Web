@@ -11,20 +11,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata = {
   title: "Mamaku Studio | Portofolio Arsitektur & Desain Bangunan",
   description:
-    "Mamaku Studio adalah portofolio arsitektur yang menampilkan karya desain rumah, interior, eksterior, dan bangunan kreatif dengan sentuhan modern dan fungsional.",
+    "Mamaku Studio adalah portofolio arsitektur yang menampilkan karya desain rumah, interior, eksterior, dan bangunan kreatif dengan sentuhan modern dan fungsional. Temukan informasi tentang proyek kami, tim, dan cara menghubungi Mamaku Studio.",
   keywords: [
     "Mamaku Studio",
-    "architecture portfolio",
-    "house design",
-    "interior design",
-    "exterior design",
-    "Indonesian architect",
-    "modern building design",
+    "portofolio arsitektur",
+    "desain rumah",
+    "desain interior",
+    "desain eksterior",
+    "arsitek Indonesia",
+    "desain bangunan modern",
+    "Mamaku Architecture Projects",
+    "About Mamaku Studio",
+    "Contact Mamaku Studio",
+    "konsultasi desain arsitektur",
+    "arsitek kreatif Indonesia"
   ],
 };
+
 
 export default function RootLayout({ children }) {
   return (

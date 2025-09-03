@@ -48,7 +48,7 @@ const HeroSection = () => {
                 <div className='flex gap-3 md:gap-5 items-end'>
                     <Image
                         src="/logohitam.png"
-                        alt="Hero Image"
+                        alt="Hero Image Mamaku Studio"
                         width={48}
                         height={48}
                         className="md:w-16 md:h-16 w-10 h-10 object-contain mb-2"

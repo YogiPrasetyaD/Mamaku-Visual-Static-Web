@@ -32,7 +32,7 @@ const ProjectCard = ({
       <div className={imageClass}>
         <Image
           src={imgUrl}
-          alt={`${title} Image`}
+          alt={`${title} Image Mamaku Studio`}
           fill
           className="object-cover"
           sizes={size === "large" ? "720px" : "250px"}
@@ -43,7 +43,7 @@ const ProjectCard = ({
       <div className="flex items-center gap-2 mt-2 w-full"> 
         <Image
           src={logo}
-          alt={`${title} Logo`}
+          alt={`${title} Logo Mamaku Studio`}
           width={size === "large" ? 64 : 32} // mobile kecil
           height={size === "large" ? 64 : 32}
           className={`${logoSize} object-contain`}

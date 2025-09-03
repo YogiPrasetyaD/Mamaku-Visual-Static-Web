@@ -36,6 +36,7 @@ const NavLinks = [
     }
 ]
 
+
 const ProjectSection = () => {
     const [isExpanded, setIsExpanded] = useState(null);
     const [isClosed, setIsClosed] = useState(false);
@@ -118,7 +119,7 @@ const ProjectSection = () => {
                             <>
                                 <Image
                                     src="/logohitam.png"
-                                    alt="Logo"
+                                    alt="Logo Mamaku Studio"
                                     width={20}
                                     height={24}
                                     className="cursor-pointer"
@@ -248,7 +249,7 @@ const ProjectSection = () => {
                                     {item.image && (
                                         <Image
                                         src={item.image.toLowerCase()}
-                                        alt={`Detail ${i + 2}`}
+                                        alt={`Detail ${i + 2} Image Mamaku Studio`}
                                         width={2000}
                                         height={2000}
                                         className="w-full max-w-full sm:max-w-[480px] md:max-w-[720px] h-auto object-contain shadow-md"
@@ -283,7 +284,7 @@ const ProjectSection = () => {
                         Close Project
                         <Image
                             src="/close.svg"
-                            alt="Close Icon"
+                            alt="Close Icon Mamaku Studio"
                             width={12}
                             height={12}
                             className="ml-2 invert"

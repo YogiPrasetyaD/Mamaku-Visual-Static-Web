@@ -3,26 +3,26 @@ import Navbar from './Navbar'
 import Image from 'next/image'
 import AboutCard from './AboutCard'
 
-const AboutData = [
-    {
-        imgUrl: '/KOSTER.png',
-        name: 'KOSTER',
-        title: 'FOUNDER',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!'
-    },
-    {
-        imgUrl: '/JAYA.png',
-        name: 'JAYA NEGARA',
-        title: 'FOUNDER',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!'
-    },
-    {
-        imgUrl: '/ARI.png',
-        name: 'AJAY',
-        title: 'FOUNDER',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!'
-    }
-]
+// const AboutData = [
+//     {
+//         imgUrl: '/KOSTER.png',
+//         name: 'KOSTER',
+//         title: 'FOUNDER',
+//         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!'
+//     },
+//     {
+//         imgUrl: '/JAYA.png',
+//         name: 'JAYA NEGARA',
+//         title: 'FOUNDER',
+//         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!'
+//     },
+//     {
+//         imgUrl: '/ARI.png',
+//         name: 'AJAY',
+//         title: 'FOUNDER',
+//         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate optio voluptate distinctio, illum aliquid aperiam dolores placeat recusandae, sint, obcaecati perferendis in temporibus saepe iusto non! Nesciunt, inventore! Aliquid!'
+//     }
+// ]
 
 const About = () => {
     return (
@@ -31,7 +31,7 @@ const About = () => {
                     <div className='flex items-center gap-3 md:gap-5'>
                         <Image
                             src="/logohitam.png"
-                                alt="Hero Image"
+                                alt="Hero Image Mamaku Studio"
                                 width={48}
                                 height={48}
                                 className="md:w-16 md:h-16"

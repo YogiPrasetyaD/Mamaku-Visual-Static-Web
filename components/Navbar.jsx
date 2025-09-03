@@ -41,7 +41,7 @@ const Navbar = () => {
                 <>
                   <Image
                     src="/logohitam.png"
-                    alt="Logo"
+                    alt="Logo Mamaku Studio"
                     width={20}
                     height={24}
                     className="cursor-pointer"

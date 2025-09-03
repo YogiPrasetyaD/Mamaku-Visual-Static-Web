@@ -6,7 +6,7 @@ const ProjectCardHero = ({ imgUrl, category }) => {
   return (
     <div>
             <Image src= {imgUrl}
-                alt="Logo"
+                alt="Logo Mamaku Studio"
                 width={427}
                 height={24}
                 className='flex items-center justify-center object-cover aspect-[3/2] w-full'/>

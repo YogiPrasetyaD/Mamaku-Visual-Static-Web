@@ -134,7 +134,7 @@ const ContactUs = () => {
                         <a href="https://www.instagram.com/mamaku.visual/" target="_blank" rel="noopener noreferrer">
                             <Image
                                 src="/ig.svg"
-                                alt="Instagram"
+                                alt="Instagram Mamaku Studio"
                                 width={24}
                                 height={24}
                                 className="cursor-pointer"
@@ -144,7 +144,7 @@ const ContactUs = () => {
                         <a href="https://wa.me/6289605699929?text=Halo%20saya%20tertarik%20untuk%20kerjasama%20dengan%20Infrava%20Labs" target="_blank" rel="noopener noreferrer">
                             <Image
                                 src="/wa.svg"
-                                alt="WhatsApp"
+                                alt="WhatsApp Mamaku Studio"
                                 width={24}
                                 height={24}
                                 className="cursor-pointer"
