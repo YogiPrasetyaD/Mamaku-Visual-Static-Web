@@ -14,16 +14,16 @@ const NavLinks = [
     },
     {
         "title": "PROJECTS",
-        "path": "/projects",
+        "path": "/mamaku-architecture-projects",
         "hasDropdown": true
     },
     {
         "title": "ABOUT",
-        "path": "/about",
+        "path": "/about-mamaku-studio",
     },
     {
         "title": "CONTACT",
-        "path": "/contact"
+        "path": "/contact-architecture-mamaku"
     }
 ]
 

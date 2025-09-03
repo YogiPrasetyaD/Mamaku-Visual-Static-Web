@@ -17,12 +17,12 @@ export const metadata = {
     "Mamaku Studio adalah portofolio arsitektur yang menampilkan karya desain rumah, interior, eksterior, dan bangunan kreatif dengan sentuhan modern dan fungsional.",
   keywords: [
     "Mamaku Studio",
-    "portofolio arsitektur",
-    "desain rumah",
-    "desain interior",
-    "desain eksterior",
-    "arsitek Indonesia",
-    "desain bangunan modern",
+    "architecture portfolio",
+    "house design",
+    "interior design",
+    "exterior design",
+    "Indonesian architect",
+    "modern building design",
   ],
 };
 
