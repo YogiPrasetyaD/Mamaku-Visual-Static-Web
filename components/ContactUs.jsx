@@ -1,10 +1,44 @@
+"use client"
+
 import React from 'react'
 import Image from 'next/image'
 import ContactMap from './ContactMap'
+import { useForm } from 'react-hook-form'
+import toast, { Toaster } from 'react-hot-toast'
 
 const ContactUs = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: {errors, isSubmitting},
+        reset,
+    } = useForm()
+
+    const onSubmit = async (data) => {
+        try {
+            const res = await fetch ("/api/contact", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data),
+            })
+
+            const result = await res.json()
+
+            if(result.success) {
+                toast.success("✅ Email sent successfully!")
+                reset()
+            }else{
+                toast.error("❌ Failed to send email")
+            }
+        } catch(error) {
+            console.error(error)
+            toast.error("⚠️ Something went wrong")
+        }
+    }
+
     return (
         <div className='flex flex-col px-8 py-52 md:px-15 md:py-56'>
+            <Toaster position='top-right' reverseOrder={false} />
             <div className='flex flex-row items-center'>
                 <div className='flex items-center gap-3 md:gap-5s'>
                     <Image
@@ -23,27 +57,71 @@ const ContactUs = () => {
                 </p>
             </div>
             <div className='grid md:grid-cols-2 gap-20 mt-4'>
-                <div className='flex flex-col text-body-xs-12 md:text-body-sm-14 mt-2'>
+                <form className='flex flex-col text-body-xs-12 md:text-body-sm-14 mt-2' onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex flex-col gap-1 p-2'>
                         <label className='text-dev-black'>Email</label>
-                        <input id='email' type="email" name='email' placeholder='youremail@example.com' className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'/>
+                        <input 
+                            id='email' 
+                            type="email" 
+                            name='email' 
+                            placeholder='youremail@example.com' 
+                            className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'
+                            {...register("email", {required: "Email is required"})}
+                        />
+                        {errors.email && (
+                            <p className="text-red-500 text-xs">{errors.email.message}</p>
+                        )}
                     </div>
                     <div className='flex flex-col gap-1 p-2'>
                         <label className='text-dev-black'>Name</label>
-                        <input id='name' type="text" name='name' placeholder='Your Name' className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'/>
+                        <input 
+                            id='name' 
+                            type="text" 
+                            name='name' 
+                            placeholder='Your Name' 
+                            className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'
+                            {...register("name", {required: "Name is required"})}
+                        />
+                        {errors.name && (
+                            <p className="text-red-500 text-xs">{errors.name.message}</p>
+                        )}
                     </div>
                     <div className='flex flex-col gap-1 p-2'>
                         <label className='text-dev-black'>Subject</label>
-                        <input id='subject' type="text" name='subject' placeholder='Your Subject' className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'/>
+                        <input 
+                            id='subject' 
+                            type="text" 
+                            name='subject' 
+                            placeholder='Your Subject' 
+                            className='border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'
+                            {...register("subject", {required: "Subject is required"})}
+                        />
+                        {errors.subject && (
+                            <p className="text-red-500 text-xs">{errors.subject.message}</p>
+                        )}
                     </div>
                     <div className='flex flex-col gap-1 p-2'>
                         <label className='text-dev-black'>Your Message</label>
-                        <textarea id='message' type="textarea" name='message' rows={4} placeholder='Im Interested on Your Project, Lets Make It Out!!' className='truncate border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black'/>
+                        <textarea 
+                            id='message' 
+                            name='message' 
+                            rows={4} 
+                            placeholder='Im Interested on Your Project, Lets Make It Out!!' 
+                            className='truncate border border-dev-black placeholder-dev-grey p-1 rounded-sm text-dev-black w-full resize-y overflow-y-auto whitespace-normal break-words'
+                            {...register("message", {required: "Message is required"})}
+                        />
+                        {errors.message && (
+                            <p className="text-red-500 text-xs">{errors.message.message}</p>
+                        )}
                     </div>
                     <div className='flex flex-col p-2 md:col-span-2 lg:col-span-3'>
-                        <button id='' className='border text-white bg-dev-black items-center justify-center p-2 mt-5 rounded-sm '>Submit</button>
+                        <button 
+                            type='submit' 
+                            disabled={isSubmitting} 
+                            className='border text-white bg-dev-black items-center justify-center p-2 mt-5 rounded-sm '
+                            >{isSubmitting ? "Sending..." : "Submit"}</button>
                     </div>
-                </div>
+                </form>
                 <div>
                     <div className='h-50 md:h-full'>
                         <ContactMap />
@@ -53,7 +131,7 @@ const ContactUs = () => {
                         <p className='text-body-xs-12 md:text-body-sm-14 text-dev-black'>Denpasar, Bali, Indonesia</p>
                     </div>
                     <div className='flex flex-row gap-2 mt-4'>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/mamaku.visual/" target="_blank" rel="noopener noreferrer">
                             <Image
                                 src="/ig.svg"
                                 alt="Instagram"
