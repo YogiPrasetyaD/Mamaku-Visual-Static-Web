@@ -89,6 +89,8 @@ const ProjectSection = () => {
         setIsExpanded(isExpanded === index ? null : index);
     }
 
+    const [isMobile, setisMobile] = useState(false);
+
     // useEffect(() => {
     //     if (isExpanded !== null && cardRefs.current[isExpanded]) {
     //         cardRefs.current[isExpanded].scrollIntoView({
@@ -108,24 +110,74 @@ const ProjectSection = () => {
         }
     }, [isExpanded]);
 
+    useEffect(() => {
+        const checkMobile = () => { setisMobile(window.innerWidth < 768) };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <section> 
             <div className='fixed left-0 right-0 top-0 z-10 mb-10 md:mb-30'>
-                <header className='flex items-center justify-between px-10 py-3 bg-white'>
+                <header className='flex items-center justify-between px-10 py-5 bg-white'>
                     <div className='flex items-center gap-6 text-[#0e141b] ' onClick={() => {setNavOpen(!navOpen)}} >
                         {navOpen ? (
                             <XMarkIcon className='w-5 h-5 text-[#0e141b]' />
                         ): (
-                            <>
-                                <Image
-                                    src="/logohitam.png"
-                                    alt="Logo Mamaku Studio"
-                                    width={20}
-                                    height={24}
-                                    className="cursor-pointer"
-                                />
-                                <h2 className='hidden md:flex text-body-md-16 font-normal text-[#0e141b] leading-tight tracking-[-0.005em]'>MAMAKU</h2>
-                            </>
+                            <div className='flex items-center gap-5'>
+                                {isMobile ? (
+                                    <>
+                                        <motion.svg width="24" height="24" viewBox="0 0 63 67" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            initial={{ opacity: 1, scale: 0 }}
+                                            animate={{ opacity: 1, scale: 1}}>
+                                            <motion.rect x="7.5" y="1" width="10" height="65" rx="5" fill="black" stroke="black"
+                                                animate={{
+                                                    height: [65, 10, 10],
+                                                    width: [10, 10, 65],
+                                                    x: [0, 0, -7.5]
+                                                }}
+                                                transition={{ duration: 3, delay: 0.25 }}/>
+                                            <motion.rect x="26.5" y="23" width="10" height="43" rx="5" fill="black" stroke="black" 
+                                                animate={{
+                                                    height: [43, 10, 10],
+                                                    width: [10, 10, 65],
+                                                    x: [0, 0, -26.5],
+                                                    y: [0, 4, 4]
+                                                }}
+                                                transition={{ duration: 3, delay: 0.75 }}/>
+                                            <motion.rect x="45.5" y="1" width="10" height="65" rx="5" fill="black" stroke="black"
+                                                animate={{
+                                                    height: [65, 10, 10],
+                                                    width: [10, 10, 65],
+                                                    x: [0, 0, -45.5],
+                                                    y: [0, 52, 52]
+                                                }}
+                                                transition={{ duration: 3, delay: 0.5}}
+                                            />
+                                        </motion.svg>
+                                        
+                                        <motion.h2 className='hidden md:flex text-body-md-16font-normal text-[#0e141b] leading-tight tracking-[-0.005em]'
+                                            initial={{ opacity: 1, scale: 0 }}
+                                            animate={{ opacity: 1, scale: 1}}
+                                            transition={{ delay: 0.75}}>MAMAKU
+                                        </motion.h2>
+                                    </>
+                                ): (
+                                    <div className='flex flex-row items-end'>
+                                        <div className='flex gap-3 md:gap-5 items-end'>
+                                            <Image
+                                            src="/logohitam.png"
+                                            alt="Logo Mamaku Studio"
+                                            width={20}
+                                            height={24}
+                                            className="cursor-pointer block"
+                                            />
+                                            <h2 className='md:flex hidden text-body-md-16 font-normal text-[#0e141b] leading-none -mb-0.5'>MAMAKU</h2>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         )}
                     </div>
                         
@@ -221,7 +273,7 @@ const ProjectSection = () => {
                                 title={project.title}
                                 category={project.category}
                                 location={project.location}
-                                imgUrl={project.details[0].image.toLowerCase()}
+                                imgUrl={project.details[0].image}
                                 size={isExpanded === index ? "large" : "small"}
                             />
 
@@ -248,7 +300,7 @@ const ProjectSection = () => {
                                     <div key={i} className="flex flex-col items-center gap-10 mb-10">
                                     {item.image && (
                                         <Image
-                                        src={item.image.toLowerCase()}
+                                        src={item.image}
                                         alt={`Detail ${i + 2} Image Mamaku Studio`}
                                         width={2000}
                                         height={2000}
