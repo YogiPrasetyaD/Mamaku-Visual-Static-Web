@@ -17,7 +17,7 @@ const ProjectCard = ({
     : "flex flex-col items-start mb-4 w-[250px] md:w-full"; // mobile 250px, md+ full width
 
   // Cover Image: proporsi 3:2 untuk semua size
-  const imageClass = "w-full aspect-[3/2] relative shadow-md";
+  const imageClass = "relative w-full aspect-[3/2] shadow-md overflow-hidden";
 
   // Logo
   const logoSize = size === "large" ? "w-16 h-16" : "w-8 h-8 md:w-12 md:h-12"; // mobile kecil, md+ default
@@ -33,9 +33,12 @@ const ProjectCard = ({
         <Image
           src={imgUrl}
           alt={`${title} Image`}
-          fill
-          className="object-cover"
-          sizes={size === "large" ? "100vw" : "250px"}
+          width={720}
+          height={480}
+          className="object-cover w-full h-full"
+          sizes={size === "large" ? "(max-width: 768px) 100vw, 720px" : "250px"}
+          priority={size === "large"}   // preload kalau di viewport awal
+          placeholder="blur"            // biar cepat ada visual
         />
       </div>
 
