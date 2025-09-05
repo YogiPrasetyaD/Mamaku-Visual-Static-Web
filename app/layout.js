@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { DefaultSeo } from "next-seo"
-import SEO from "../next-seo.config"
+import SEO from "./next-seo.config"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
