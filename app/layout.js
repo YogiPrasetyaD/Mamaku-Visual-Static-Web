@@ -1,8 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import { DefaultSeo } from "next-seo"
-import SEO from "./next-seo.config"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +54,6 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <DefaultSeo {...SEO} />
         {children}
       </body>
     </html>
