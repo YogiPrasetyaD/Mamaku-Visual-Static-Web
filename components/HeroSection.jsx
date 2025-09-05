@@ -70,7 +70,7 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div className='flex gap-3 md:gap-5 items-end' variants={item}>
-        <h1 className='font-medium leading-none align-text-bottom text-body-sm-14 md:text-body-lg-20 text-dev-black mb-4'>
+        <h1 className='font-[570] leading-none align-text-bottom text-body-sm-14 md:text-body-lg-20 text-dev-black mb-4'>
           Architecture | Studio | 3D Visualization | Else
         </h1>
       </motion.div>
