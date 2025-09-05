@@ -90,21 +90,21 @@ const HeroSection = () => {
           </motion.p>
 
           {/* Mobile: hanya muncul saat showMore = true */}
-          <AnimatePresence>
-            {showMore && (
-              <motion.p
-                key="extra-text-mobile"
-                className="text-body-xs-12 text-dev-black mt-2 md:hidden"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                Tim kami berkomitmen memberikan pelayanan arsitektur lengkap, mulai dari konsultasi desain, visualisasi 3D, hingga pengawasan konstruksi. Kami percaya bahwa desain arsitektur bukan sekadar estetika, tetapi juga menciptakan pengalaman hidup yang nyaman, efisien, dan berkelanjutan. Setiap proyek dirancang dengan memperhatikan aspek cahaya, ventilasi, sirkulasi ruang, dan detail finishing material. Portofolio kami menunjukkan kemampuan dalam merancang ruang multifungsi, memaksimalkan ruang terbatas, dan menghadirkan identitas unik untuk setiap klien. Kami juga mengutamakan integrasi teknologi modern dan konsep berkelanjutan untuk meningkatkan kualitas hidup penghuni, sekaligus menjaga lingkungan sekitar. Melalui pendekatan holistik ini, Mamaku Studio berupaya menciptakan karya arsitektur yang tidak hanya indah, tetapi juga fungsional, nyaman, dan tahan lama.
-              </motion.p>
-            )}
-          </AnimatePresence>
-
+          <motion.div
+            style={{ overflow: "hidden" }}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ 
+              height: showMore ? "auto" : 0, // ini akan kita ganti dengan scrollHeight
+              opacity: showMore ? 1 : 0 
+            }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <p className="text-body-xs-12 text-dev-black mt-2 md:hidden">
+              Tim kami berkomitmen memberikan pelayanan arsitektur lengkap, mulai dari konsultasi desain, visualisasi 3D, hingga pengawasan konstruksi. Kami percaya bahwa desain arsitektur bukan sekadar estetika, tetapi juga menciptakan pengalaman hidup yang nyaman, efisien, dan berkelanjutan. Setiap proyek dirancang dengan memperhatikan aspek cahaya, ventilasi, sirkulasi ruang, dan detail finishing material. Portofolio kami menunjukkan kemampuan dalam merancang ruang multifungsi, memaksimalkan ruang terbatas, dan menghadirkan identitas unik untuk setiap klien. Kami juga mengutamakan integrasi teknologi modern dan konsep berkelanjutan untuk meningkatkan kualitas hidup penghuni, sekaligus menjaga lingkungan sekitar. Melalui pendekatan holistik ini, Mamaku Studio berupaya menciptakan karya arsitektur yang tidak hanya indah, tetapi juga fungsional, nyaman, dan tahan lama.
+            </p>
+          </motion.div>
+      
           {/* Medium ke atas: selalu tampil */}
           <motion.p className='text-body-xs-12 md:text-body-sm-14 text-dev-black hidden md:block' variants={item}>
             Tim kami berkomitmen memberikan pelayanan arsitektur lengkap, mulai dari konsultasi desain, visualisasi 3D, hingga pengawasan konstruksi. Kami percaya bahwa desain arsitektur bukan sekadar estetika, tetapi juga menciptakan pengalaman hidup yang nyaman, efisien, dan berkelanjutan. Setiap proyek dirancang dengan memperhatikan aspek cahaya, ventilasi, sirkulasi ruang, dan detail finishing material. Portofolio kami menunjukkan kemampuan dalam merancang ruang multifungsi, memaksimalkan ruang terbatas, dan menghadirkan identitas unik untuk setiap klien. Kami juga mengutamakan integrasi teknologi modern dan konsep berkelanjutan untuk meningkatkan kualitas hidup penghuni, sekaligus menjaga lingkungan sekitar. Melalui pendekatan holistik ini, Mamaku Studio berupaya menciptakan karya arsitektur yang tidak hanya indah, tetapi juga fungsional, nyaman, dan tahan lama.
