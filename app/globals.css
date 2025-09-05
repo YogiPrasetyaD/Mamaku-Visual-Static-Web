@@ -31,6 +31,45 @@
   --text-body-xxs-10: 10px;
 }
 
+@layer components {
+  .btn-black {
+    @apply border content-center text-center align-middle w-fit h-fit px-7 py-2 
+            md:text-body-md-16 sm:text-body-sm-14 text-body-xs-12 
+            bg-dev-black hover:bg-dev-white text-dev-white hover:text-dev-black 
+            border-transparent hover:border-black transition-all cursor-pointer;
+  }
+
+  .btn-white {
+    @apply border content-center text-center align-middle w-fit h-fit px-7 py-2 
+            md:text-body-md-16 sm:text-body-sm-14 text-body-xs-12 
+            bg-dev-white hover:bg-dev-black text-dev-black hover:text-dev-white 
+            border-black hover:border-transparent transition-all cursor-pointer;
+  }
+
+  .btn-gray {
+    @apply border content-center text-center align-middle w-fit h-fit px-7 py-2 
+            md:text-body-md-16 sm:text-body-sm-14 text-body-xs-12 
+            bg-[#AFAFAF] hover:bg-[#696969] text-dev-white hover:text-dev-white 
+            border-[#AFAFAF] hover:border-transparent transition-all cursor-pointer;
+  }
+
+  .search-field {
+    @apply border content-center w-fit h-fit px-3 py-2
+            md:text-body-md-16 sm:text-body-sm-14 text-body-xs-12 
+            bg-dev-grey hover:bg-dev-white text-dev-white hover:text-dev-black 
+            focus:bg-dev-white focus:text-dev-black focus:outline-2
+            border-transparent hover:outline-1 transition-all cursor-pointer;
+  }
+  .input-field {
+    @apply border w-full h-fit px-2.5 py-1.5 
+            md:text-body-md-16 sm:text-body-sm-14 text-body-xs-12 
+            bg-dev-white hover:bg-dev-white text-dev-black hover:text-dev-black 
+            focus:bg-dev-white focus:text-dev-black focus:outline-1
+            border-dev-black hover:outline-1 disabled:bg-[#E9E9E9] disabled:border disabled:border-[#C4C4C4] 
+            disabled:hover:outline-0 disabled:hover:outline-transparent disabled:cursor-default transition-all cursor-pointer;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
