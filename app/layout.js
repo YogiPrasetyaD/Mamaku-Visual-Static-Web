@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,7 +11,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 
 export const metadata = {
   title: "Mamaku Studio | Portofolio Arsitektur & Desain Bangunan",
@@ -30,15 +30,30 @@ export const metadata = {
     "konsultasi desain arsitektur",
     "arsitek kreatif Indonesia"
   ],
+  openGraph: {
+    siteName: "Mamaku Studio",
+  },
+  applicationName: "Mamaku Studio",
 };
-
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="id">
+      <head>
+        {/* Open Graph fallback */}
+        <meta property="og:site_name" content="Mamaku Studio" />
+
+        {/* Structured Data JSON-LD */}
+        <Script id="structured-data" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Mamaku Studio",
+            url: "https://mamakustudio.com",
+          })}
+        </Script>
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>

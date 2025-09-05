@@ -62,7 +62,7 @@ const HeroSection = () => {
 
       {/* Deskripsi */}
       <motion.div className='flex flex-col' variants={container} initial="hidden" animate="show">
-        <motion.div className='grid grid-cols-2 lg:grid-cols-3 justify-center text-justify gap-4' variants={container}>
+        <motion.div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center text-justify gap-4' variants={container}>
           <motion.p className='text-body-xs-12 md:text-body-sm-14 text-dev-black' variants={item}>
             Mamaku Studio adalah portofolio arsitektur dan desain bangunan yang menghadirkan solusi kreatif untuk hunian pribadi, ruang publik, dan interior komersial. Kami menekankan desain modern, fungsional, dan estetika yang harmonis dengan lingkungan sekitar. Setiap proyek dikerjakan dengan pendekatan personal, memperhatikan kebutuhan klien, material berkualitas, pencahayaan alami, serta integrasi ruang indoor dan outdoor untuk kenyamanan maksimal. Portofolio kami mencakup desain rumah minimalis, interior barbershop modern industrial, lobby kantor, ruang publik kampus, dan konsep hunian bersama yang mendukung interaksi sosial. Dengan pengalaman mendalam dalam arsitektur Indonesia, Mamaku Studio memastikan setiap detail proyek, mulai dari fasad, interior, hingga landscape, mencerminkan kualitas, kreativitas, dan estetika tinggi.
           </motion.p>
@@ -87,12 +87,6 @@ const HeroSection = () => {
                 imgUrl={project.imgUrl.toLowerCase()}
                 category={project.category}
               />
-              <motion.p
-                variants={item}
-                className="text-body-xs-12 md:text-body-sm-14 text-dev-black mt-2"
-              >
-                {project.category}
-              </motion.p>
             </motion.li>
           ))}
         </motion.ul>
