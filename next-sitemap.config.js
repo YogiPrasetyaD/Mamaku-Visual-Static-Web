@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: "https://mamakustudio.com", // ganti dengan domain kamu
-  generateRobotsTxt: true, // otomatis bikin robots.txt
+  generateRobotsTxt: false, // otomatis bikin robots.txt
   sitemapSize: 7000,
   changefreq: "weekly",
   priority: 0.7,
