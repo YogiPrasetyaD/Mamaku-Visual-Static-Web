@@ -40,8 +40,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <head>
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/logoputih.png" />
+        <link rel="apple-touch-icon" href="/logoputih.png" />
+        <meta name="theme-color" content="#ffffff" />
+
         {/* Open Graph fallback */}
         <meta property="og:site_name" content="Mamaku Studio" />
+        <meta property="og:image" content="https://mamakustudio.com/logoputih.png" />
+        <meta
+          property="og:title"
+          content="Mamaku Studio | Portofolio Arsitektur & Desain Bangunan"
+        />
+        <meta
+          property="og:description"
+          content="Mamaku Studio – portofolio arsitektur & desain rumah, interior, eksterior modern."
+        />
 
         {/* Structured Data JSON-LD */}
         <Script id="structured-data" type="application/ld+json">
